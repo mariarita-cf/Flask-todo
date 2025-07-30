@@ -1,49 +1,68 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 40px;
-    background-color: #f8f8f8;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: white;
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 h1 {
+    text-align: center;
     color: #333;
 }
 
 form {
+    display: flex;
     margin-bottom: 20px;
 }
 
 input[type="text"] {
-    padding: 8px;
-    width: 250px;
+    flex: 1;
+    padding: 10px;
     font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
 }
 
 button {
-    padding: 8px 12px;
-    font-size: 16px;
-    background-color: #4285f4;
-    color: white;
+    padding: 10px 20px;
+    background-color: #28a745;
     border: none;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
-    margin-left: 8px;
+    border-radius: 0 5px 5px 0;
 }
 
 button:hover {
-    background-color: #3367d6;
+    background-color: #218838;
 }
 
 ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
 li {
-    background: white;
+    background-color: #eee;
     padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 4px;
+    margin-top: 5px;
+    border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+form[action^="/delete"] {
+    margin: 0;
 }
