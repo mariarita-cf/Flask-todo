@@ -37,6 +37,17 @@ def delete(id):
     conn.close()
     return redirect('/')
 
+@app.route('/edit/<int:id>', methods=['POST'])
+def edit(id):
+    novo_conteudo = request.form.get('novo_conteudo')
+    if novo_conteudo:
+        conn = get_db_connection()
+        conn.execute('UPDATE tarefas SET conteudo = ? WHERE id = ?', (novo_conteudo, id))
+        conn.commit()
+        conn.close()
+    return redirect('/')
+
+
 # Rota para alternar o status de conclusão
 @app.route('/toggle/<int:id>', methods=['POST'])
 def toggle_tarefa(id):

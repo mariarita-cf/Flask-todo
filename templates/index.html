@@ -26,9 +26,14 @@
     <small style="color: #666;">Criada em: {{ item['criada_em'] }}</small>
 </span>
 
-                    <form action="/delete/{{ item['id'] }}" method="POST" style="display:inline;">
-                        <button type="submit">Remover</button>
-                    </form>
+                  <form action="/edit/{{ item['id'] }}" method="POST" style="display:inline;">
+    <input type="text" name="novo_conteudo" value="{{ item['conteudo'] }}" required>
+    <button type="submit">Salvar</button>
+</form>
+<form action="/delete/{{ item['id'] }}" method="POST" style="display:inline;">
+    <button type="submit">Remover</button>
+</form>
+
                 </li>
             {% else %}
                 <li>Nenhuma tarefa por enquanto.</li>
