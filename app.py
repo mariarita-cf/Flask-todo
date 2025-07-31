@@ -22,7 +22,8 @@ def index():
 
     # Listar tarefas do banco (corrigido: sem "criada_em")
     conn = get_db_connection()
-    tarefas = conn.execute('SELECT * FROM tarefas ORDER BY id DESC').fetchall()
+    tarefas = conn.execute('SELECT * FROM tarefas ORDER BY criada_em DESC').fetchall()
+
     conn.close()
 
     return render_template('index.html', tarefas=tarefas)

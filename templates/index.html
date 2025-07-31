@@ -20,9 +20,12 @@
                     <form action="/toggle/{{ item['id'] }}" method="POST" style="display:inline;">
                         <input type="checkbox" name="concluida" onchange="this.form.submit()" {% if item['concluida'] %}checked{% endif %}>
                     </form>
-                    <span class="{% if item['concluida'] %}concluida{% endif %}">
-                        {{ item['conteudo'] }}
-                    </span>
+                   <span class="{% if item['concluida'] %}concluida{% endif %}">
+    {{ item['conteudo'] }}
+    <br>
+    <small style="color: #666;">Criada em: {{ item['criada_em'] }}</small>
+</span>
+
                     <form action="/delete/{{ item['id'] }}" method="POST" style="display:inline;">
                         <button type="submit">Remover</button>
                     </form>
