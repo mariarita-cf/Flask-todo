@@ -20,14 +20,14 @@ def index():
             conn.close()
         return redirect('/')
 
-    # Listar tarefas do banco
+    # Listar tarefas do banco (corrigido: sem "criada_em")
     conn = get_db_connection()
-    tarefas = conn.execute('SELECT * FROM tarefas ORDER BY criada_em DESC').fetchall()
+    tarefas = conn.execute('SELECT * FROM tarefas ORDER BY id DESC').fetchall()
     conn.close()
 
     return render_template('index.html', tarefas=tarefas)
 
-# ✅ ROTA DE REMOÇÃO — FORA da função index()
+# Rota para remover uma tarefa
 @app.route('/delete/<int:id>', methods=['POST'])
 def delete(id):
     conn = get_db_connection()
@@ -36,6 +36,7 @@ def delete(id):
     conn.close()
     return redirect('/')
 
+# Rota para alternar o status de conclusão
 @app.route('/toggle/<int:id>', methods=['POST'])
 def toggle_tarefa(id):
     conn = get_db_connection()
@@ -47,8 +48,10 @@ def toggle_tarefa(id):
     conn.close()
     return redirect('/')
 
+# Inicia o servidor Flask
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
+
 
 
 
