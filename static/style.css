@@ -66,3 +66,13 @@ li {
 form[action^="/delete"] {
     margin: 0;
 }
+
+.concluida {
+    text-decoration: line-through;
+    color: #888;
+}
+
+span.concluida {
+    text-decoration: line-through;
+    color: gray;
+}

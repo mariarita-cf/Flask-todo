@@ -17,7 +17,12 @@
         <ul>
             {% for item in tarefas %}
                 <li>
-                    {{ item['conteudo'] }}
+                    <form action="/toggle/{{ item['id'] }}" method="POST" style="display:inline;">
+                        <input type="checkbox" name="concluida" onchange="this.form.submit()" {% if item['concluida'] %}checked{% endif %}>
+                    </form>
+                    <span class="{% if item['concluida'] %}concluida{% endif %}">
+                        {{ item['conteudo'] }}
+                    </span>
                     <form action="/delete/{{ item['id'] }}" method="POST" style="display:inline;">
                         <button type="submit">Remover</button>
                     </form>
@@ -25,9 +30,10 @@
             {% else %}
                 <li>Nenhuma tarefa por enquanto.</li>
             {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
 
-
-
-  
 
 

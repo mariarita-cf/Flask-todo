@@ -22,7 +22,7 @@ def index():
 
     # Listar tarefas do banco
     conn = get_db_connection()
-    tarefas = conn.execute('SELECT * FROM tarefas').fetchall()
+    tarefas = conn.execute('SELECT * FROM tarefas ORDER BY criada_em DESC').fetchall()
     conn.close()
 
     return render_template('index.html', tarefas=tarefas)
@@ -33,6 +33,17 @@ def delete(id):
     conn = get_db_connection()
     conn.execute('DELETE FROM tarefas WHERE id = ?', (id,))
     conn.commit()
+    conn.close()
+    return redirect('/')
+
+@app.route('/toggle/<int:id>', methods=['POST'])
+def toggle_tarefa(id):
+    conn = get_db_connection()
+    tarefa = conn.execute('SELECT concluida FROM tarefas WHERE id = ?', (id,)).fetchone()
+    if tarefa:
+        novo_status = 0 if tarefa['concluida'] else 1
+        conn.execute('UPDATE tarefas SET concluida = ? WHERE id = ?', (novo_status, id))
+        conn.commit()
     conn.close()
     return redirect('/')
 

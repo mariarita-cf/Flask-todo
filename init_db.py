@@ -4,11 +4,13 @@ import sqlite3
 conn = sqlite3.connect('tarefas.db')
 cursor = conn.cursor()
 
-# Cria a tabela de tarefas, se não existir
+# Cria a tabela com os novos campos: concluida e criada_em
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS tarefas (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        conteudo TEXT NOT NULL
+        conteudo TEXT NOT NULL,
+        concluida INTEGER DEFAULT 0,
+        criada_em DATETIME DEFAULT CURRENT_TIMESTAMP
     )
 ''')
 
