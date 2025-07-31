@@ -17,10 +17,33 @@
         <ul>
             {% for item in tarefas %}
                 <li class="{% if item['concluida'] %}concluida{% endif %}">
-                    <!-- Checkbox -->
                     <form action="/toggle/{{ item['id'] }}" method="POST" style="display:inline;">
                         <input type="checkbox" name="concluida" onchange="this.form.submit()" {% if item['concluida'] %}checked{% endif %}>
                     </form>
 
-                    <!-- Texto e formulário de edição -->
                     <span class="texto-tarefa" id="texto-{{ item['id'] }}">{{ item['conteudo'] }}</span>
+
+                    <form action="/edit/{{ item['id'] }}" method="POST" id="form-edit-{{ item['id'] }}" style="display:none; margin-top: 5px;">
+                        <input type="text" name="novo_conteudo" value="{{ item['conteudo'] }}" required>
+                        <button type="submit">Salvar</button>
+                    </form>
+
+                    <div class="acoes">
+                        <button type="button" onclick="mostrarEdicao({{ item['id'] }})">Editar</button>
+                        <form action="/delete/{{ item['id'] }}" method="POST" style="display:inline;">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        function mostrarEdicao(id) {
+            document.getElementById('form-edit-' + id).style.display = 'block';
+            document.getElementById('texto-' + id).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
