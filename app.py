@@ -1,14 +1,18 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
+import os
 
 app = Flask(__name__)
 
-# Conexão com o banco
+# Usa o caminho certo no Render: /tmp
+DB_PATH = '/tmp/tarefas.db'
+
 def get_db_connection():
-    conn = sqlite3.connect('/tmp/tarefas.db')  # Caminho válido no Render
+    conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
+# Cria a tabela se ainda não existir
 def init_db():
     conn = get_db_connection()
     conn.execute('''
@@ -21,9 +25,8 @@ def init_db():
     conn.commit()
     conn.close()
 
-# Executa na inicialização do app
+# Executa ao iniciar
 init_db()
-
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -39,6 +42,7 @@ def index():
     conn = get_db_connection()
     tarefas = conn.execute('SELECT * FROM tarefas ORDER BY id DESC').fetchall()
     conn.close()
+
     return render_template('index.html', tarefas=tarefas)
 
 @app.route('/delete/<int:id>', methods=['POST'])
@@ -57,6 +61,17 @@ def edit(id):
         conn.execute('UPDATE tarefas SET conteudo = ? WHERE id = ?', (novo_conteudo, id))
         conn.commit()
         conn.close()
+    return redirect('/')
+
+@app.route('/toggle/<int:id>', methods=['POST'])
+def toggle_tarefa(id):
+    conn = get_db_connection()
+    tarefa = conn.execute('SELECT concluida FROM tarefas WHERE id = ?', (id,)).fetchone()
+    if tarefa:
+        novo_status = 0 if tarefa['concluida'] else 1
+        conn.execute('UPDATE tarefas SET concluida = ? WHERE id = ?', (novo_status, id))
+        conn.commit()
+    conn.close()
     return redirect('/')
 
 if __name__ == '__main__':
