@@ -5,9 +5,25 @@ app = Flask(__name__)
 
 # Conexão com o banco
 def get_db_connection():
-    conn = sqlite3.connect('tarefas.db')
+    conn = sqlite3.connect('/tmp/tarefas.db')  # Caminho válido no Render
     conn.row_factory = sqlite3.Row
     return conn
+
+def init_db():
+    conn = get_db_connection()
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS tarefas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            conteudo TEXT NOT NULL,
+            concluida INTEGER NOT NULL DEFAULT 0
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+# Executa na inicialização do app
+init_db()
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
