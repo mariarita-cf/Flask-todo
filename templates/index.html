@@ -16,32 +16,15 @@
 
         <ul>
             {% for item in tarefas %}
-                <li>
+                <li class="{% if item['concluida'] %}concluida{% endif %}">
+                    <!-- Checkbox para marcar como concluída -->
                     <form action="/toggle/{{ item['id'] }}" method="POST" style="display:inline;">
                         <input type="checkbox" name="concluida" onchange="this.form.submit()" {% if item['concluida'] %}checked{% endif %}>
                     </form>
-                   <span class="{% if item['concluida'] %}concluida{% endif %}">
-    {{ item['conteudo'] }}
-    <br>
-    <small style="color: #666;">Criada em: {{ item['criada_em'] }}</small>
-</span>
 
-                  <form action="/edit/{{ item['id'] }}" method="POST" style="display:inline;">
-    <input type="text" name="novo_conteudo" value="{{ item['conteudo'] }}" required>
-    <button type="submit">Salvar</button>
-</form>
-<form action="/delete/{{ item['id'] }}" method="POST" style="display:inline;">
-    <button type="submit">Remover</button>
-</form>
+                    <!-- Texto da tarefa -->
+                    <span class="texto-tarefa" id="texto-{{ item['id'] }}">{{ item['conteud]()
 
-                </li>
-            {% else %}
-                <li>Nenhuma tarefa por enquanto.</li>
-            {% endfor %}
-        </ul>
-    </div>
-</body>
-</html>
 
 
 
