@@ -18,8 +18,18 @@ body {
 }
 
 h1 {
+   .titulo {
+    color: #000; /* Preto */
+    font-weight: bold;
     text-align: center;
-    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 }
 
 form {
