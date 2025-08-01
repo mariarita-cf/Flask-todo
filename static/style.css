@@ -17,7 +17,7 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
-h1 {
+
    .titulo {
     color: #000; /* Preto */
     font-weight: bold;
@@ -30,7 +30,7 @@ h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-}
+
 
 form {
     display: flex;
