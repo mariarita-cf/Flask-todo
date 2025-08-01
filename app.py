@@ -37,16 +37,17 @@ def index():
 @app.route('/toggle/<int:id>', methods=['POST'])
 def toggle_tarefa(id):
     conn = get_db_connection()
-    cur = conn.cursor()
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
     cur.execute('SELECT concluida FROM tarefas WHERE id = %s', (id,))
     tarefa = cur.fetchone()
     if tarefa:
-        novo_status = not tarefa[0]  # tarefa[0] acessa o valor booleano
+        novo_status = not tarefa['concluida']
         cur.execute('UPDATE tarefas SET concluida = %s WHERE id = %s', (novo_status, id))
         conn.commit()
     cur.close()
     conn.close()
     return redirect('/')
+
 
 # Editar o conteúdo de uma tarefa
 @app.route('/edit/<int:id>', methods=['POST'])
