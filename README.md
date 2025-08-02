@@ -1,34 +1,85 @@
-# Lista de Tarefas com Flask
+# 📝 Lista de Tarefas
 
-Um aplicativo web simples para gerenciar tarefas, desenvolvido com **Python (Flask)** e **PostgreSQL**.
+Este é um aplicativo simples de lista de tarefas desenvolvido com **Flask**.  
+Permite adicionar, marcar como concluída, editar e excluir tarefas.
 
-![Screenshot do App](static/screenshot.png)
+## 🚀 Funcionalidades
 
-## **Funcionalidades**
 - Adicionar novas tarefas
-- Editar tarefas existentes
-- Marcar como concluídas
+- Marcar tarefas como concluídas
+- Editar o conteúdo de uma tarefa
 - Excluir tarefas
-- Interface moderna com imagem de fundo
+- Interface responsiva com layout visual leve
+- Dados salvos em banco SQLite
 
-## **Tecnologias Utilizadas**
+## 🖼️ Captura de Tela
+
+![screenshot](static/projeto.png)
+
+## 🧰 Tecnologias
+
 - Python 3
 - Flask
-- PostgreSQL
-- HTML, CSS (Jinja2 Templates)
+- HTML/CSS
+- SQLite
+- Render (deploy)
 
-## **Como Rodar Localmente**
+## 📁 Estrutura de Pastas
+
+```
+Flask-Todo/
+├── app.py
+├── init_db.py
+├── requirements.txt
+├── render.yaml
+├── tarefas.db
+├── static/
+│ ├── bg.jpg
+│ ├── projeto.png
+│ └── style.css
+├── templates/
+│ └── index.html
+├── README.md
+└── venv/
+```
+
+## 🔧 Como Executar Localmente
+
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/SEU_USUARIO/Flask-todo.git
-   cd Flask-todo
+git clone https://github.com/codebyrita/Flask-todo
+
+
+2. Acesse o diretório:
+cd flask-todo
+
+
+3. Crie e ative um ambiente virtual:
+python -m venv venv
+source venv/bin/activate # Linux/macOS
+.\venv\Scripts\activate # Windows
+
+
+4. Instale as dependências:
+pip install -r requirements.txt
+
+
+5. Inicie o app:
+python app.py
+
+
+6. Acesse no navegador:
+http://127.0.0.1:5000/
+
 
 ## 📸 Créditos
 
 - **Imagem de fundo (`bg.jpg`)**:  
-  Foto por [Autor] via [Pexels](https://www.pexels.com/pt-br/foto/alvorecer-amanhecer-aurora-panorama-6348329/)  
-  (ou Pixabay, Pexels, etc — substitua o link e nome reais)
+Foto por [Nguyen Duy Quang](https://www.pexels.com/pt-br/foto/alvorecer-amanhecer-aurora-panorama-6348329/) via [Pexels](https://www.pexels.com)
 
 - **Ícones**: Emojis nativos (✏️ 🗑️)
 
-- **Desenvolvimento**: Codebyrita
+- **Desenvolvimento**: [codebyrita](https://github.com/codebyrita)
+
+---
+
+
