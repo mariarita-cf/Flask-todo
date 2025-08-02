@@ -1,22 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url("/static/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* branco translúcido */
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+
+   .titulo {
+    color: #000; /* Preto */
+    font-weight: bold;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
 li {
     background-color: #eee;
     padding: 10px;
     margin-top: 5px;
     border-radius: 5px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    position: relative;
 }
 
-li .tarefa-conteudo {
+.concluida {
+    text-decoration: line-through;
+    color: #888;
+}
+
+span.concluida {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.texto-tarefa {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.acoes {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.acoes form {
     display: flex;
     align-items: center;
-    flex-grow: 1;
-    gap: 8px;
+}
+
+.acoes button, .acoes form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.acoes button:hover, .acoes form button:hover {
+    background-color: #0056b3;
+}
+
+.edit-form input[type="text"] {
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+}
+
+.tarefa-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .texto-tarefa {
     font-size: 16px;
-    color: #000;
+    margin: 0;
+    padding: 0;
 }
