@@ -2,14 +2,13 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Tarefas</title> <!-- Aqui sim é o título da aba do navegador -->
+    <title>Lista de Tarefas</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <h1 class="titulo">Lista de Tarefas</h1>
 
-        <!-- formulário e tarefas aqui -->
         <form action="/" method="POST">
             <input type="text" name="tarefa" placeholder="Digite uma nova tarefa" required>
             <button type="submit">Adicionar</button>
@@ -18,11 +17,12 @@
         <ul>
             {% for item in tarefas %}
                 <li class="{% if item['concluida'] %}concluida{% endif %}">
-                    <form action="/toggle/{{ item['id'] }}" method="POST" style="display:inline;">
-                        <input type="checkbox" onchange="this.form.submit()" {% if item['concluida'] %}checked{% endif %}>
-                    </form>
-
-                    <span class="texto-tarefa">{{ item['conteudo'] }}</span>
+                    <div class="tarefa-conteudo">
+                        <form action="/toggle/{{ item['id'] }}" method="POST">
+                            <input type="checkbox" onchange="this.form.submit()" {% if item['concluida'] %}checked{% endif %}>
+                        </form>
+                        <span class="texto-tarefa">{{ item['conteudo'] }}</span>
+                    </div>
 
                     <div class="acoes">
                         <form action="/edit/{{ item['id'] }}" method="POST" class="edit-form">
