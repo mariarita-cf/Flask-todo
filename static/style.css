@@ -6,30 +6,30 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
+    align-items: start;
+    min-height: 100vh;
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.9); /* branco translúcido */
+    background-color: rgba(255, 255, 255, 0.95);
     margin-top: 50px;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 30px 25px;
+    border-radius: 12px;
+    width: 420px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-
-   .titulo {
-    color: #000; /* Preto */
+.titulo {
+    color: #000;
     font-weight: bold;
     text-align: center;
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 
 form {
     display: flex;
@@ -40,8 +40,9 @@ input[type="text"] {
     flex: 1;
     padding: 10px;
     font-size: 16px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 6px 0 0 6px;
     border: 1px solid #ccc;
+    outline: none;
 }
 
 button {
@@ -51,7 +52,8 @@ button {
     color: white;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 6px 6px 0;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -61,39 +63,42 @@ button:hover {
 ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 li {
-    background-color: #eee;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
+    background-color: #f1f1f1;
+    padding: 12px 15px;
+    margin-top: 10px;
+    border-radius: 8px;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.concluida {
-    text-decoration: line-through;
-    color: #888;
-}
-
-span.concluida {
-    text-decoration: line-through;
-    color: gray;
+.tarefa-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
 }
 
 .texto-tarefa {
-    display: inline-block;
-    margin-left: 10px;
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+.concluida .texto-tarefa {
+    text-decoration: line-through;
+    color: gray;
 }
 
 .acoes {
     display: flex;
     gap: 8px;
-    margin-left: auto;
 }
 
 .acoes form {
@@ -109,9 +114,11 @@ span.concluida {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-.acoes button:hover, .acoes form button:hover {
+.acoes button:hover,
+.acoes form button:hover {
     background-color: #0056b3;
 }
 
@@ -121,16 +128,5 @@ span.concluida {
     border-radius: 4px;
     border: 1px solid #ccc;
     margin-right: 5px;
-}
-
-.tarefa-conteudo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.texto-tarefa {
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
+    width: 160px;
 }
