@@ -12,6 +12,11 @@ Permite adicionar, marcar como concluída, editar e excluir tarefas.
 - Interface responsiva com layout visual leve
 - Dados salvos em banco SQLite
 
+## 🌐 Projeto Online
+
+Você pode testar o aplicativo funcionando neste link:  
+🔗 [https://flask-todo-m20u.onrender.com](https://flask-todo-m20u.onrender.com)
+
 ## 🖼️ Captura de Tela
 
 ![screenshot](static/projeto.png)
