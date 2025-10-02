@@ -15,7 +15,7 @@ Permite adicionar, marcar como concluída, editar e excluir tarefas.
 ## 🌐 Projeto Online
 
 Você pode testar o aplicativo funcionando neste link:  
-🔗 [https://flask-todo-m20u.onrender.com](https://flask-todo-m20u.onrender.com)
+🔗 https://flask-todo-m20u.onrender.com
 
 ## 🖼️ Captura de Tela
 
@@ -83,7 +83,7 @@ Foto por [Nguyen Duy Quang](https://www.pexels.com/pt-br/foto/alvorecer-amanhece
 
 - **Ícones**: Emojis nativos (✏️ 🗑️)
 
-- **Desenvolvimento**: [codebyrita](https://github.com/codebyrita)
+- **Desenvolvimento**: Maria Rita 
 
 ---
 
